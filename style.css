@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+}
+
+#container {
+  margin: 0;
+  padding: 0;
+}
+
+
+input,
+label {
+  display: block;
+  box-sizing: border-box;
+}
+
+
+.images {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.card-back-container {
+  position: relative;
+  position: absolute;
+  top: 30px;
+  left: 80px;
+}
+
+.cvc {
+  position: absolute;
+  top: 67px;
+  right: 40px;
+  font-size: 12px;
+  color: white;
+}
+
+.card-front-container {
+  position: relative;
+  position: absolute;
+  top: 115px;
+  left: 20px;
+}
+
+.card-logo {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  height: 25px;
+}
+
+.card-number {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  font-size: 18px;
+  color: white;
+}
+
+.card-name {
+  color: white;
+  position: absolute;
+  bottom: 25px;
+  left: 15px;
+  font-size: 12px;
+}
+
+.card-expiry-date {
+  position: absolute;
+  bottom: 25px;
+  right: 15px;
+  font-size: 12px;
+  color: white;
+}
+
+.form-container {
+  padding-top: 70px
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+label {
+  margin-bottom: 5px;
+  color: hsl(278, 68%, 11%);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+input {
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  outline: none;
+  border: 1px solid hsl(270, 3%, 87%);
+}
+
+input::placeholder {
+  color: hsl(270, 3%, 87%);
+  font-family: inherit;
+  font-weight: 450;
+  font-size: 15px;
+}
+
+input:focus {
+  border: 1px solid hsl(278, 94%, 30%);
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-item1 {
+  width: 80%;
+}
+
+.expiry-date {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.expiry-date-inputs {
+  display: flex;
+}
+
+.expiry-date-inputs div:first-child {
+  margin-right: 10px;
+}
+
+button {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+  border-radius: 10px;
+  outline: none;
+  background-color: hsl(278, 68%, 11%);
+  border: none;
+  color: hsl(0, 0%, 100%);
+  font-weight: medium;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+p {
+  color: hsl(0, 100%, 66%);
+  font-size: 5px;
+  display: none;
+  margin-bottom: 15px;
+}
+
+form .error-msg {
+  display: block;
+}
+
+
+
+/*****Completed state style****/
+.completed-container {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.completed-icon {
+  margin: 20px 0;
+}
+
+h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: hsl(278, 68%, 11%);
+}
+
+.completed-content {
+  margin: 15px 0;
+  color: hsl(279, 6%, 55%);
+}
+
+.continue-btn {
+  width: 70%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.attribution {
+  margin: 20px 0;
+}
+
+.attribution a {
+  text-decoration: none;
+}
+
+
+@media (min-width: 768px) {
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #container {
+    height: 600px;
+    display: flex;
+    width: 100%;
+  }
+
+  .images {
+    width: 35%;
+  }
+
+  .card-front {
+    position: absolute;
+    left: 75px;
+  }
+
+  .card-back {
+    position: absolute;
+    top: 250px;
+    left: 50px;
+  }
+
+  .form-container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  form {
+    width: 50%;
+  }
+
+  .card-logo {
+    position: absolute;
+    left: 100px;
+  }
+
+  .card-number {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+  }
+
+  .card-name {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 100px;
+  }
+
+  .card-expiry-date {
+    position: absolute;
+    top: 120px;
+    left: 270px;
+  }
+
+  .cvc {
+    position: absolute;
+    top: 320px;
+    left: 220px;
+  }
+
+  .completed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    width: 100%;
+  }
+
+}

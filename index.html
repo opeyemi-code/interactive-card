@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <link <link rel="stylesheet" href="style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+
+
+    <div class="images">
+      <picture>
+        <source class="desktop-img" media="(min-width: 768px)" srcset="/images/bg-main-desktop.png" width="300px" height="100%">
+        <source media="(min-width: 465px)" srcset="/images/bg-main-mobile.png">
+        <img src="/images/bg-main-mobile.png">
+      </picture>
+      <div class="card-back-container">
+        <img class="card-back" src="/images/bg-card-back.png" alt="" height="150px" width="250px">
+        <span class="cvc">000</span>
+      </div>
+
+      <div class="card-front-container">
+        <img class="card-front" src="/images/bg-card-front.png" alt="" height="150px" width="250px">
+        <img class="card-logo" src="/images/card-logo.svg" alt="">
+        <span class="card-number">
+          <pre>0000 0000 0000 0000</pre>
+        </span>
+        <span class="card-name">Jane Appleseed</span>
+        <div class="card-expiry-date"><span class="expiry-month">00</span>/<span class="expiry-year">00</span></div>
+      </div>
+    </div>
+    <div class="form-container">
+      <form>
+        <div>
+          <label for="card-name">Cardholder Name</label>
+          <input type="text" id="card-name" placeholder="e.g. Jane Appleseed">
+          <p>can't be blank</p>
+        </div>
+        <div>
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" minlength="16" maxlength="16" class="valid-input">
+          <p>can't be blank</p>
+        </div>
+        <div class="flex">
+          <div class="flex-item1">
+            <div class="expiry-date">
+              <label for="expiry-month">EXP. DATE (MM/YY)</label>
+              <div class="expiry-date-inputs">
+                <div>
+                  <input type="text" placeholder="MM" id="expiry-month" minlength="2" maxlength="2" class="valid-input">
+                  <p>Can't be blank</p>
+                </div>
+                <div>
+                  <input type="text" placeholder="YY" id="expiry-year" minlength="2" maxlength="2" class="valid-input">
+                  <p>Can't be blank</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-item2">
+            <label for="cvc">CVC</label>
+            <input type="text" name="" id="cvc" placeholder="e.g. 123" minlength="3" maxlength="3" class="valid-input">
+            <p>Can't be blank</p>
+          </div>
+        </div>
+        <button id="confirm-btn">Confirm</button>
+      </form>
+    </div>
+    <!--Completed state start -->
+    <div class="completed-container">
+      <img class="completed-icon" src="/images/icon-complete.svg" alt="">
+      <h1>Thank you!</h1>
+      <p class="completed-content">We've added your card details</p>
+      <button class="continue-btn">Continue</button>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="github.com/opeyemi-code">Opeyemi</a>.
+  </div>
+</body>
+<script src="main.js">
+  main.js
+</script>
+
+</html>
