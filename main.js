@@ -19,7 +19,7 @@ const expiryYearInput = document.getElementById('expiry-year');
 
 const cvcNumInput = document.querySelector('#cvc');
 
-const confirmBtn = document.querySelector('form');
+const confirmBtn = document.querySelector('#confirm-btn');
 
 const formContainer = document.querySelector(".form-container");
 
@@ -38,7 +38,7 @@ addEventListener('input', setExpiryYear);
 
 cvcNumInput.addEventListener('input', setCvcNumInput);
 
-confirmBtn.addEventListener('submit', inputFieldChecker);
+confirmBtn.addEventListener('click', submitForm);
 
 
 function setCardName() {
@@ -73,86 +73,76 @@ function setCvcNumInput(e) {
   if (getCvcNum.length < 4) {
     cardCvcNumber.textContent = getCvcNum.split("").slice(0, 3).join('');
   }
-
 }
 
-
-//Function for checking if any input field is empty
-
-function inputFieldChecker(e) {
+function submitForm(e) {
   e.preventDefault();
 
-const inputFields = document.querySelectorAll('input');
+  //empty field checker
+  const inputFields = document.querySelectorAll('input');
 
-inputFields.forEach((inputField)=>{
-  
-  const inputFieldValue = inputField.value.trim();
-  
-  if (!inputFieldValue){
-    displayErrorMsg(inputField);
+  for (const inputField of inputFields) {
+    const inputValue = inputField.value;
+    if (inputValue === '') {
+      displayErrorMsg(inputField);
+    }
+    else {
+      clearErrorMsg(inputField);
+    }
   }
-  else {
-    clearErrorMsg(inputField);
+
+  //invalid input checker
+
+  const _inputs = document.querySelectorAll('.valid-input');
+
+  for (const _input of _inputs) {
+
+    const _inputValue = _input.value.trim();
+
+    const regExpText = /[^0-9]/g.test(_inputValue);
+
+    if (regExpText) {
+      _input.nextElementSibling.textContent = 'Wrong format';
+      displayErrorMsg(_input);
+    }
   }
-  
-  if (inputFieldValue){
-    inputValidationChecker();
+
+  //valid month checker
+  const monthInputValue = Number(expiryMonthInput.value.trim());
+  if (monthInputValue > 12) {
+    expiryMonthInput.nextElementSibling.textContent = 'Invalid month';
+    displayErrorMsg(expiryMonthInput);
   }
-})
-validMonthChecker();
-validYearChecker();
+
+  //valid year checker
+
+  const yearInputValue = Number(expiryYearInput.value.trim());
+
+  if (yearInputValue && yearInputValue < 23) {
+    expiryYearInput.nextElementSibling.textContent = 'Invalid year';
+    displayErrorMsg(expiryYearInput);
+  }
+
+  //displayCompletedState();
 }
-//function for error msg
+
+function displayCompletedState() {
+  formContainer.style.display = 'none';
+  completedState.style.display = 'block';
+}
+
+//function for displaying error message
 
 function displayErrorMsg(_inputField) {
   _inputField.nextElementSibling.classList.add('error-msg');
   _inputField.setAttribute('style', 'border: 1px solid red');
 }
 
-//function for clearing error msg
+//function for clearing error message
 
 function clearErrorMsg(_inputField) {
   _inputField.nextElementSibling.classList.remove('error-msg');
   _inputField.removeAttribute('style', 'border: 1px solid red');
-}
-
-//function for form validation
-
-function inputValidationChecker() {
-  const _inputs = document.querySelectorAll('.valid-input');
-
-  _inputs.forEach((_input) => {
-
-    const _inputValue = _input.value.trim();
-
-    const regExpText = /[^0-9]/g.test(_inputValue);
-
-    if (regExpText === true) {
-      _input.nextElementSibling.textContent = 'Wrong format';
-      displayErrorMsg(_input)
-    }
-  })
-}
-
-//function for valid month
-function validMonthChecker() {
-  const monthInputValue = Number(expiryMonthInput.value.trim());
-  if (monthInputValue > 12) {
-    expiryMonthInput.nextElementSibling.textContent = 'Invalid month';
-    displayErrorMsg(expiryMonthInput);
-  }
-}
-
-
-//function for valid year checker
-function validYearChecker() {
-  const yearInputValue = Number(expiryYearInput.value.trim());
-  //const currentYear = new Date().getYear();
-
-  if (yearInputValue && yearInputValue < 23) {
-    expiryYearInput.nextElementSibling.textContent = 'Invalid year';
-    displayErrorMsg(expiryYearInput);
-  }
 }
 
 function insertSpaces(input) {
